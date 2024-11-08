@@ -1,0 +1,114 @@
+﻿body {
+    margin: 0px;
+    background-image: url(images/back.gif);
+    background-repeat: repeat-x;
+    font-family: 'Comic Sans MS';
+    background-color: 	#000000e8;
+    color: white
+    
+}
+
+#formMain {
+    width: 1180px;
+    margin: 0px auto;
+}
+
+header {
+    height: 167px;
+    background-image: url(images/header.gif);
+}
+
+    header h1 {
+        margin: 0px;
+        padding: 60px;
+        text-align: center;
+        color: white;
+        letter-spacing: 5px;
+        text-shadow: white 0.1em 0.1em 0.2em;
+    }
+
+nav {
+    height: 58px;
+    background-image: url(images/menu.gif);
+    padding-left: 150px;
+}
+
+.menuitem {
+    padding: 17px 40px;
+    color: white;
+    text-transform: uppercase;
+}
+
+article {
+    height: 640px;
+    background-image: url(images/container.gif);
+    margin: 0px auto;
+    padding: 20px 130px;
+}
+
+#content {
+    float: left;
+    width: 610px;
+    text-align: justify;
+}
+
+    #content h2 {
+        color: white;
+    }
+
+#sidebar {
+    float: right;
+    width: 230px;
+    font-size: 14px;
+}
+
+footer p {
+    color: lightgray;
+    text-align: center;
+}
+
+.hyperlink {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.images {
+    float: left;
+    margin: 20px;
+    margin-right: 40px;
+}
+
+.books {
+    padding-right: 10px;
+}
+
+a img {
+    border: none;
+}
+
+.button-style {
+    background-color: #000000; /* Зелений фон */
+    color: white; /* Білий текст */
+    border: none;
+    padding: 15px 32px;
+    
+    text-decoration: none;
+    
+    font-size: 16px;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавна зміна кольору фону і тексту */
+}
+
+.button-style:hover {
+    background-color: #00000031; /* Темніший зелений при наведенні */
+    color: #ff0000; /* Жовтий текст при наведенні */
+}
+.mar {
+  margin-left: 300px;
+}
+.marg{
+    margin-left: 50px;
+}

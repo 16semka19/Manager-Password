@@ -1,0 +1,39 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MyFirstWebFotms.SiteMaster" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Чого дивишся?</title>
+ <meta name="keywords" content="C#, .NET, ADO.NET, ASP.NET, IT, Socket" />
+ <meta name="description" content="Курс дисципліни Технології .NET" />
+ <meta name="author" content="Циклова комісія інженерії програмного забезпечення" />
+ <link href="Style.css" rel="stylesheet" />
+ <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+ <form id="formMain" runat="server">
+ <header>
+ <h1>1Pass Manager</h1>
+ </header>
+ <nav>
+ <asp:Menu ID="MenuMain" runat="server" Orientation="Horizontal">
+ <Items>
+ <asp:MenuItem NavigateUrl="Default.aspx" Text="Головна" Value="Головна"></asp:MenuItem>
+ <asp:MenuItem NavigateUrl="Practice.aspx" Text="Практикум" Value="Практикум"></asp:MenuItem>
+ <asp:MenuItem NavigateUrl="Contact.aspx" Text="Контакти" Value="Контакти"></asp:MenuItem>
+  <asp:MenuItem NavigateUrl="Autorization.aspx" Text="Авторизація" Value="Авторизація"></asp:MenuItem>
+ </Items>
+ <StaticHoverStyle BackColor="#025586" />
+ <StaticMenuItemStyle CssClass="menuitem" HorizontalPadding="40px" VerticalPadding="17px" /></asp:Menu>
+ </nav>
+ <article>
+ <div id="content">
+ <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server"></asp:ContentPlaceHolder>
+ </div>
+ <div id="sidebar">
+ <asp:ContentPlaceHolder ID="ContentPlaceHolderBar" runat="server"></asp:ContentPlaceHolder>
+ </div>
+ </article>
+
+ </form>
+</body>
+</html>
