@@ -3,6 +3,7 @@ using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
+using System.Web; // Для HttpUtility
 
 namespace MyFirstWebFotms
 {
@@ -20,6 +21,10 @@ namespace MyFirstWebFotms
 
                 BindSites();
             }
+
+            // Встановлюємо атрибут type="password" для полів паролів
+            txtSitePasswordEdit.Attributes.Add("type", "password");
+            txtSitePassword.Attributes.Add("type", "password");
         }
 
 
@@ -53,21 +58,20 @@ namespace MyFirstWebFotms
             if (e.CommandName == "EditItem")
             {
                 LoadSiteDetails(siteId);
-                ScriptManager.RegisterStartupScript(this, GetType(), "OpenEditModal", "document.getElementById('detailsSiteModal').style.display = 'block';", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "OpenEditModal", "openDetailsModal();", true);
             }
             else if (e.CommandName == "DeleteItem")
             {
                 DeleteSite(siteId);
 
-                // Перенаправляем пользователя на ту же страницу, чтобы обновить данные
+                // Перенаправляємо користувача на ту ж сторінку, щоб оновити дані
                 Response.Redirect(Request.RawUrl);
             }
         }
 
 
 
-
-        private void LoadSiteDetails(int siteId)
+        protected void LoadSiteDetails(int siteId)
         {
             int currentUserId = (int)Session["user_id"];
             string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
@@ -92,7 +96,7 @@ namespace MyFirstWebFotms
                     }
                     else
                     {
-                        lblSiteOptionsMessage.Text = "Сайт не найден или у вас нет доступа.";
+                        lblSiteOptionsMessage.Text = "Сайт не знайдено або у вас немає доступу.";
                     }
                 }
             }
@@ -101,7 +105,7 @@ namespace MyFirstWebFotms
 
         protected void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            if (hfSiteId.Value == "")
+            if (string.IsNullOrEmpty(hfSiteId.Value))
             {
                 lblSiteOptionsMessage.Text = "Не вдалося отримати ідентифікатор сайту.";
                 return;
@@ -137,14 +141,14 @@ namespace MyFirstWebFotms
                 cmd.ExecuteNonQuery();
             }
 
-            // Закрываем модальное окно и обновляем список
+            // Закриваємо модальне вікно та оновлюємо список
             ScriptManager.RegisterStartupScript(this, GetType(), "CloseEditModal", "closeDetailsModal();", true);
             BindSites();
         }
 
         protected void btnDeleteSite_Click(object sender, EventArgs e)
         {
-            if (hfSiteId.Value == "")
+            if (string.IsNullOrEmpty(hfSiteId.Value))
             {
                 lblSiteOptionsMessage.Text = "Не вдалося отримати ідентифікатор сайту.";
                 return;
@@ -154,7 +158,7 @@ namespace MyFirstWebFotms
 
             DeleteSite(siteId);
 
-            // Закрываем модальное окно и обновляем список
+            // Закриваємо модальне вікно та оновлюємо список
             ScriptManager.RegisterStartupScript(this, GetType(), "CloseEditModal", "closeDetailsModal();", true);
             BindSites();
         }
@@ -220,7 +224,7 @@ namespace MyFirstWebFotms
 
             BindSites();
 
-            // Закрываем модальное окно создания сайта
+            // Закриваємо модальне вікно створення сайту
             ScriptManager.RegisterStartupScript(this, GetType(), "CloseCreateModal", "closeCreateModal();", true);
         }
     }

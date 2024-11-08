@@ -32,13 +32,9 @@
                         ErrorMessage="Поле є обов'язковим!" ForeColor="Red" />
 
                     <p>Пароль:</p>
-                       <span class="toggle-password" onclick="togglePasswordVisibility('<%= txtSitePasswordEdit.ClientID %>');">&#128065;</span>
+
                     <div class="password-container">
-                       
-
                         <asp:TextBox ID="txtSitePassword" runat="server" CssClass="marg password-field" TextMode="Password"></asp:TextBox>
-
-                        
                         <button type="button" class="small-button" onclick="generatePassword();">Згенерувати</button>
                     </div>
                     <asp:RequiredFieldValidator ID="rfvSitePassword" runat="server" ControlToValidate="txtSitePassword"
@@ -72,17 +68,16 @@
             <LayoutTemplate>
                 <div class="sites-container">
                     <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
-
                 </div>
-                 <footer>
- <p>Copyright (c) 2024 1PassManager. Всі права належать студенту Семисюку Дмитру 541</p>
- </footer>
+                <footer>
+                    <p>Copyright (c) 2024 1PassManager. Всі права належать студенту Семисюку Дмитру 541</p>
+                </footer>
             </LayoutTemplate>
             <ItemTemplate>
                 <div class="card">
                     <h3><%# Eval("site_name") %></h3>
                     <p>Логін: <%# Eval("site_login") %></p>
-                    
+
                     <!-- Кнопки для редагування/видалення -->
                     <asp:Button ID="btnEdit" runat="server" Text="Редагувати" CommandName="EditItem" CommandArgument='<%# Eval("id") %>' CssClass="button-style" />
                     <asp:Button ID="btnDelete" runat="server" Text="Видалити" CommandName="DeleteItem" CommandArgument='<%# Eval("id") %>' CssClass="button-style" OnClientClick="return confirm('Ви впевнені, що хочете видалити цей сайт?');" />
@@ -90,9 +85,7 @@
             </ItemTemplate>
             <EmptyDataTemplate>
                 <p>Немає доданих сайтів.</p>
-
             </EmptyDataTemplate>
-
         </asp:ListView>
 
         <!-- Модальне Вікно для Деталей Сайту -->
@@ -102,29 +95,27 @@
                 <h2>Редагувати Сайт</h2>
                 <asp:Panel ID="pnlEditSite" runat="server">
                     <asp:HiddenField ID="hfSiteId" runat="server" />
-                  <p>Сайт:</p>
-<div class="input-with-button">
-  
-    <asp:TextBox ID="txtSiteNameEdit" runat="server" CssClass="marg" Style="flex: 1; margin-left: 10px;"></asp:TextBox>
-</div>
-<asp:RequiredFieldValidator ID="rfvSiteNameEdit" runat="server" ControlToValidate="txtSiteNameEdit"
-    ForeColor="Red" />
+                    <p>Сайт:</p>
+                    <div class="input-with-button">
+                        <asp:TextBox ID="txtSiteNameEdit" runat="server" CssClass="marg" Style="flex: 1; margin-left: 10px;"></asp:TextBox>
+                    </div>
+                    <asp:RequiredFieldValidator ID="rfvSiteNameEdit" runat="server" ControlToValidate="txtSiteNameEdit"
+                        ForeColor="Red" />
 
-<!-- Поле для логіну -->
-<p>Логін:</p>
-<div class="input-with-button">
-
-    <asp:TextBox ID="txtSiteLoginEdit" runat="server" CssClass="marg" Style="flex: 1; margin-left: 10px;"></asp:TextBox>
-</div>
-<asp:RequiredFieldValidator ID="rfvSiteLoginEdit" runat="server" ControlToValidate="txtSiteLoginEdit"
-     ForeColor="Red" />
+                    <!-- Поле для логіну -->
+                    <p>Логін:</p>
+                    <div class="input-with-button">
+                        <asp:TextBox ID="txtSiteLoginEdit" runat="server" CssClass="marg" Style="flex: 1; margin-left: 10px;"></asp:TextBox>
+                    </div>
+                    <asp:RequiredFieldValidator ID="rfvSiteLoginEdit" runat="server" ControlToValidate="txtSiteLoginEdit"
+                         ForeColor="Red" />
 
                     <p>Пароль:</p>
-                 <div class="password-container">
-    <button type="button" class="small-button" onclick="generatePasswordEdit();">Згенерувати</button>
-    <asp:TextBox ID="txtSitePasswordEdit" runat="server" CssClass="marg password-field" TextMode="Password"></asp:TextBox>
-    <span class="toggle-password" onclick="togglePasswordVisibility('<%= txtSitePasswordEdit.ClientID %>');">&#128065;</span>
-</div>
+                    <div class="password-container">
+                        <asp:TextBox ID="txtSitePasswordEdit" runat="server" CssClass="marg password-field" TextMode="SingleLine"></asp:TextBox>
+                        <span class="toggle-password" onclick="togglePasswordVisibility('<%= txtSitePasswordEdit.ClientID %>');">&#128065;</span>
+                        <button type="button" class="small-button" onclick="generatePasswordEdit();">Згенерувати</button>
+                    </div>
 
                     <asp:RequiredFieldValidator ID="rfvSitePasswordEdit" runat="server" ControlToValidate="txtSitePasswordEdit"
                          ForeColor="Red" />
@@ -156,7 +147,7 @@
 
     <!-- CSS -->
     <style>
-        /* Стиль для модального фона */
+        /* Стиль для модального фону */
         .modal {
             display: none;
             position: fixed;
@@ -201,27 +192,29 @@
 
         /* Стиль для контейнера пароля */
        .password-container {
-    display: flex;
-    align-items: center;
-}
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
 
-.password-field {
-    flex: 1;
-    margin-left: 10px;
-    margin-right: 30px; /* Space for the toggle icon */
-}
+        .password-field {
+            flex: 1;
+            margin-left: 10px;
+            margin-right: 10px; /* Reduced space */
+        }
 
-.toggle-password {
-    position: absolute;
-    right: 10px;
-}
-        /* Стиль для списка сайтов и карточек */
+        .toggle-password {
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        /* Стиль для списку сайтів та карточок */
        .sites-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 7 колонок, кожна займає рівну частину */
-    gap: 10px; /* Відступи між картками */
-   margin-left: -400px;
-}
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 колонок */
+            gap: 10px; /* Відступи між картками */
+            margin-left: -400px; /* Перегляньте, чи це необхідно */
+        }
 
         .card {
             border: 1px solid #ccc;
@@ -243,6 +236,7 @@
             border-radius: 3px;
             cursor: pointer;
             margin: 5px 0;
+            width: 100%;
         }
 
         .button-style:hover {
