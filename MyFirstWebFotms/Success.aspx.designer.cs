@@ -114,15 +114,6 @@ namespace MyFirstWebFotms
         protected global::System.Web.UI.WebControls.Label lblSiteMessage;
 
         /// <summary>
-        /// ListView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView1;
-
-        /// <summary>
         /// lvSites control.
         /// </summary>
         /// <remarks>
@@ -211,15 +202,6 @@ namespace MyFirstWebFotms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveChanges;
-
-        /// <summary>
-        /// btnDeleteSite control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeleteSite;
 
         /// <summary>
         /// btnCancelEdit control.

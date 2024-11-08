@@ -18,7 +18,7 @@
  <asp:Menu ID="MenuMain" runat="server" Orientation="Horizontal">
  <Items>
  <asp:MenuItem NavigateUrl="Default.aspx" Text="Головна" Value="Головна"></asp:MenuItem>
- <asp:MenuItem NavigateUrl="Practice.aspx" Text="Практикум" Value="Практикум"></asp:MenuItem>
+ <asp:MenuItem NavigateUrl="Practice.aspx" Text="Довідник" Value="Практикум"></asp:MenuItem>
  <asp:MenuItem NavigateUrl="Contact.aspx" Text="Контакти" Value="Контакти"></asp:MenuItem>
   <asp:MenuItem NavigateUrl="Autorization.aspx" Text="Авторизація" Value="Авторизація"></asp:MenuItem>
  </Items>

@@ -32,7 +32,7 @@
                         ErrorMessage="Поле є обов'язковим!" ForeColor="Red" />
 
                     <p>Пароль:</p>
-                   
+                       <span class="toggle-password" onclick="togglePasswordVisibility('<%= txtSitePasswordEdit.ClientID %>');">&#128065;</span>
                     <div class="password-container">
                        
 

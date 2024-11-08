@@ -7,24 +7,24 @@ pub/shockwave/cabs/flash/swflash.cab# version=9,0,0,0" width="610" height="103">
  <param name="quality" value="best" />
  <param name="menu" value="true" /><param name="allowScriptAccess" value="sameDomain" />
  <img src="image/wow.gif" height="200" width="634" border="0"> </object>
- <h2>Лабораторний курс</h2>
+ <h2>Довідник</h2>
  <p>
  <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="book\attack HTTP.pdf"
-CssClass="hyperlink">Лабораторна робота №1</asp:HyperLink>
- "Перехоплення HTTP". </p>
+CssClass="hyperlink">HTTP</asp:HyperLink>
+ </p>
  <p>
  <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="files/Лабораторна робота №4.pdf"
-CssClass="hyperlink">Лабораторна робота №2</asp:HyperLink>
- "Практична Nmap".</p>
+CssClass="hyperlink">HTTPS</asp:HyperLink>
+</p>
  <p>
  <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="files/Лабораторна робота №5.pdf"
-CssClass="hyperlink">Лабораторна робота №3</asp:HyperLink>
- "Практична SQL injection".
+CssClass="hyperlink">SQL</asp:HyperLink>
+
  </p>
  <p>
  <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="files/Лабораторна робота №6.pdf"
-CssClass="hyperlink">Лабораторна робота №4</asp:HyperLink>
- "Metasploit".
+CssClass="hyperlink">Metasploit</asp:HyperLink>
+
 </p>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBar" runat="Server"><h2>Література</h2>
